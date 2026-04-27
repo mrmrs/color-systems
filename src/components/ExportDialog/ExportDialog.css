@@ -1,0 +1,92 @@
+.export-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+}
+
+.export-dialog {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow);
+  width: 600px;
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.export-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.export-dialog__title {
+  margin: 0;
+  font-size: 16px;
+}
+
+.export-dialog__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.export-dialog__close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm, 4px);
+
+  &:hover {
+    background: var(--code-bg);
+    color: var(--text-h);
+  }
+}
+
+.export-dialog__code {
+  padding: 20px;
+  margin: 0;
+  overflow: auto;
+  flex: 1;
+  background: var(--code-bg);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-h);
+  white-space: pre;
+  tab-size: 2;
+}
+
+.copy-button {
+  padding: 6px 14px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm, 4px);
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--sans);
+  cursor: pointer;
+  transition: all 120ms ease;
+
+  &:hover {
+    background: var(--accent);
+    color: white;
+  }
+}

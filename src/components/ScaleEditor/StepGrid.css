@@ -1,0 +1,5 @@
+.step-grid {
+  display: flex;
+  gap: 2px;
+  padding: 0;
+}
