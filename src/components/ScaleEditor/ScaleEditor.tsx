@@ -1,6 +1,5 @@
 import { useMemo, useState, useCallback } from "react";
-import type { ColorScale } from "../../types";
-import { useScaleState, useScaleDispatch, useSelectedScale, useSelectedOverrides } from "../../state/ScaleContext";
+import { useScaleState, useScaleDispatch, useSelectedScale, useSelectedOverrides } from "../../state/scaleHooks";
 import { multiStopInterpolate } from "../../lib/interpolation";
 import { GradientBar } from "../GradientBar/GradientBar";
 import { StepGrid } from "./StepGrid";
@@ -32,7 +31,7 @@ export function ScaleEditor() {
       scale.paddingStart,
       scale.paddingEnd
     );
-  }, [scale?.anchors, scale?.stepCount, scale?.interpolationSpace, scale?.hueInterpolation, scale?.paddingStart, scale?.paddingEnd]);
+  }, [scale]);
 
   const selectedAnchor = scale?.anchors.find((a) => a.id === selectedAnchorId) ?? null;
 

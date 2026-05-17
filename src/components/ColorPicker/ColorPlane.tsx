@@ -15,6 +15,10 @@ interface ColorPlaneProps {
 
 const RESOLUTION = 64;
 
+function channel(value: number | null | undefined): number {
+  return value ?? 0;
+}
+
 export function ColorPlane({
   x,
   y,
@@ -48,9 +52,9 @@ export function ColorPlane({
         if (color) {
           try {
             const srgb = color.to("srgb");
-            data[idx] = Math.round(Math.max(0, Math.min(1, srgb.coords[0])) * 255);
-            data[idx + 1] = Math.round(Math.max(0, Math.min(1, srgb.coords[1])) * 255);
-            data[idx + 2] = Math.round(Math.max(0, Math.min(1, srgb.coords[2])) * 255);
+            data[idx] = Math.round(Math.max(0, Math.min(1, channel(srgb.coords[0]))) * 255);
+            data[idx + 1] = Math.round(Math.max(0, Math.min(1, channel(srgb.coords[1]))) * 255);
+            data[idx + 2] = Math.round(Math.max(0, Math.min(1, channel(srgb.coords[2]))) * 255);
             data[idx + 3] = 255;
           } catch {
             data[idx] = data[idx + 1] = data[idx + 2] = 128;

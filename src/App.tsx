@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
-import { ScaleProvider, useScaleState, useScaleDispatch } from "./state/ScaleContext";
+import { ScaleProvider } from "./state/ScaleContext";
+import { useScaleDispatch, useScaleState } from "./state/scaleHooks";
 import { useLiveCssVariables } from "./hooks/useLiveCssVariables";
 import { ScaleEditor } from "./components/ScaleEditor/ScaleEditor";
 import { ScaleList } from "./components/ScaleList/ScaleList";

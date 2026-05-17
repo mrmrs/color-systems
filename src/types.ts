@@ -26,25 +26,6 @@ export interface ColorScale {
 
 export type PickerMode = "oklch" | "hsl" | "rgb";
 
-export type ScaleAction =
-  | { type: "ADD_ANCHOR"; scaleId: string; anchor: AnchorStop }
-  | { type: "REMOVE_ANCHOR"; scaleId: string; anchorId: string }
-  | { type: "MOVE_ANCHOR"; scaleId: string; anchorId: string; position: number }
-  | { type: "UPDATE_ANCHOR_COLOR"; scaleId: string; anchorId: string; color: [number, number, number]; alpha?: number }
-  | { type: "SET_STEP_COUNT"; scaleId: string; stepCount: number }
-  | { type: "SET_INTERPOLATION_SPACE"; scaleId: string; space: string }
-  | { type: "SET_HUE_INTERPOLATION"; scaleId: string; hue: ColorScale["hueInterpolation"] }
-  | { type: "SET_PADDING"; scaleId: string; paddingStart?: number; paddingEnd?: number }
-  | { type: "OVERRIDE_STEP"; scaleId: string; stepIndex: number; color: [number, number, number]; alpha?: number }
-  | { type: "RESET_STEP"; scaleId: string; stepIndex: number }
-  | { type: "RESET_ALL_STEPS"; scaleId: string }
-  | { type: "ADD_SCALE"; scale: ColorScale }
-  | { type: "REMOVE_SCALE"; scaleId: string }
-  | { type: "RENAME_SCALE"; scaleId: string; name: string }
-  | { type: "SELECT_SCALE"; scaleId: string }
-  | { type: "SET_CONTRAST_ALGORITHM"; algorithm: ContrastAlgorithm }
-  | { type: "RESET_DEFAULTS" };
-
 export type ContrastAlgorithm = "APCA" | "WCAG21";
 
 export type ThemeMode = "light" | "dark";

@@ -1,12 +1,12 @@
 import Color from "colorjs.io";
-import type { AnchorStop, ScaleStep } from "../types";
+import type { AnchorStop, ColorScale, ScaleStep } from "../types";
 import { colorFromCoords, colorToP3Coords } from "./color";
 
 export function multiStopInterpolate(
   anchors: AnchorStop[],
   stepCount: number,
   interpolationSpace: string,
-  hueInterpolation: string = "shorter",
+  hueInterpolation: ColorScale["hueInterpolation"] = "shorter",
   paddingStart: number = 0,
   paddingEnd: number = 0
 ): ScaleStep[] {

@@ -1,5 +1,9 @@
 import Color from "colorjs.io";
 
+function channel(value: number | null | undefined): number {
+  return value ?? 0;
+}
+
 export function createP3Color(r: number, g: number, b: number, alpha = 1): Color {
   const c = new Color("p3", [r, g, b]);
   c.alpha = alpha;
@@ -12,7 +16,7 @@ export function colorFromCoords(coords: [number, number, number], alpha = 1): Co
 
 export function colorToP3Coords(color: Color): [number, number, number] {
   const p3 = color.to("p3");
-  return [p3.coords[0], p3.coords[1], p3.coords[2]];
+  return [channel(p3.coords[0]), channel(p3.coords[1]), channel(p3.coords[2])];
 }
 
 export function colorToHex(color: Color): string {
@@ -25,7 +29,7 @@ export function colorToHex(color: Color): string {
 
 export function colorToP3CssString(color: Color): string {
   const p3 = color.to("p3");
-  const [r, g, b] = p3.coords;
+  const [r, g, b] = colorToP3Coords(p3);
   if (p3.alpha < 1) {
     return `color(display-p3 ${round(r)} ${round(g)} ${round(b)} / ${round(p3.alpha)})`;
   }
@@ -35,9 +39,9 @@ export function colorToP3CssString(color: Color): string {
 export function colorToOklch(color: Color): { l: number; c: number; h: number } {
   const oklch = color.to("oklch");
   return {
-    l: oklch.coords[0],
-    c: oklch.coords[1],
-    h: oklch.coords[2] || 0,
+    l: channel(oklch.coords[0]),
+    c: channel(oklch.coords[1]),
+    h: channel(oklch.coords[2]),
   };
 }
 
@@ -48,9 +52,9 @@ export function oklchToColor(l: number, c: number, h: number): Color {
 export function colorToHsl(color: Color): { h: number; s: number; l: number } {
   const hsl = color.to("hsl");
   return {
-    h: hsl.coords[0] || 0,
-    s: hsl.coords[1],
-    l: hsl.coords[2],
+    h: channel(hsl.coords[0]),
+    s: channel(hsl.coords[1]),
+    l: channel(hsl.coords[2]),
   };
 }
 

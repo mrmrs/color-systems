@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import Color from "colorjs.io";
 import { ColorPlane } from "./ColorPlane";
 

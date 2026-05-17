@@ -1,4 +1,4 @@
-import { useScaleState, useScaleDispatch } from "../../state/ScaleContext";
+import { useScaleState, useScaleDispatch } from "../../state/scaleHooks";
 import type { SemanticToken, TokenRef, ThemeMode } from "../../types";
 import "./ThemeEditor.css";
 
@@ -63,7 +63,7 @@ function TokenRow({ token, mode }: { token: SemanticToken; mode: ThemeMode }) {
 
       {/* Candidate strip */}
       <div className="theme-token__candidates">
-        {token.candidates.map((cand, i) => {
+        {token.candidates.map((cand) => {
           const isActive = cand.scale === current.scale && cand.step === current.step;
           return (
             <button
